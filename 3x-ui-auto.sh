@@ -32,7 +32,7 @@ sed -i "s/^#Port.*/Port $RANDOM_PORT/" $SSHD_CONFIG
 sed -i "s/^Port.*/Port $RANDOM_PORT/" $SSHD_CONFIG
 
 color_text green "В терминале вашего Windows (правой кнопкой по пуску - терминал) выполнить скрипт для генерации SSH ключа:"
-color_text cyan 'iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Hips13/3x-ui-auto/main/create_ssh_key.ps1'))'
+color_text cyan "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Hips13/3x-ui-auto/main/create_ssh_key.ps1'))"
 
 confirm_continue
 
