@@ -69,7 +69,7 @@ confirm_continue
 EXTERNAL_IP=$(curl -s ifconfig.me)
 
 echo "Теперь подключение к серверу будет выполняться командой:"
-echo "ssh root@$INTERNAL_IP -p $RANDOM_PORT -i \"C:\Users\\имя пользователя\\.ssh\\vpn\""
+echo "ssh root@$EXTERNAL_IP -p $RANDOM_PORT -i \"C:\Users\\имя пользователя\\.ssh\\vpn\""
 
 confirm_continue
 
