@@ -24,7 +24,6 @@ confirm_continue() {
 apt update && apt upgrade -y
 
 RANDOM_PORT=$((RANDOM % 30001 + 30000))
-echo "ssh port $RANDOM_PORT"
 
 confirm_continue
 
