@@ -73,8 +73,8 @@ confirm_continue
 
 EXTERNAL_IP=$(curl -s ifconfig.me)
 
-color_text white "Теперь подключение к серверу будет выполняться командой:"
-color_text green "ssh root@$EXTERNAL_IP -p $RANDOM_PORT -i \"C:\Users\\имя пользователя\\.ssh\\vpn\""
+color_text green "Теперь подключение к серверу будет выполняться командой:"
+printf '\e[34m%s\e[0m\n' "ssh root@$EXTERNAL_IP -p $RANDOM_PORT -i \"C:\Users\\имя пользователя\\.ssh\\vpn\""
 
 confirm_continue
 
