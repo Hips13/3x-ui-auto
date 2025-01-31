@@ -7,7 +7,7 @@ cd $sshDir
 ssh-keygen -t rsa -b 4096 -C "vpn_key" -f "$sshDir\vpn" -N '""'
 
 if ((Test-Path "$sshDir\vpn") -and (Test-Path "$sshDir\vpn.pub")) {
-    Write-Host "SSH-ключ 'vpn' успешно создан в папке $sshDir" -ForegroundColor Green
+    Write-Host "SSH-key 'vpn' created in dir $sshDir" -ForegroundColor Green
 
     $publicKey = Get-Content -Path "$sshDir\vpn.pub"
     Write-Host "Public key, copy to linux:" -ForegroundColor Green
