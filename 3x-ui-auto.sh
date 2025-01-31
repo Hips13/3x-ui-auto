@@ -23,6 +23,10 @@ confirm_continue() {
 
 apt update && apt upgrade -y
 
+if [ -d "/etc/ssh/sshd_config.d" ]; then
+  rm -f /etc/ssh/sshd_config.d/*
+fi
+
 RANDOM_PORT=$((RANDOM % 30001 + 30000))
 
 SSHD_CONFIG="/etc/ssh/sshd_config"
@@ -54,8 +58,9 @@ sed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' $SSHD_CONFIG
 sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication yes/' $SSHD_CONFIG
 sed -i 's/^PubkeyAuthentication no/PubkeyAuthentication yes/' $SSHD_CONFIG
 
-systemctl restart sshd
 systemctl restart ssh
+
+systemctl restart sshd
 
 mkdir -p /etc/ssl/private /etc/ssl/certs
 openssl req -x509 -newkey rsa:4096 -nodes -sha256 -keyout /etc/ssl/private/private.key -out /etc/ssl/certs/public.key -days 3650 -subj "/CN=APP"
