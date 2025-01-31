@@ -66,15 +66,15 @@ mkdir -p /etc/ssl/private /etc/ssl/certs
 openssl req -x509 -newkey rsa:4096 -nodes -sha256 -keyout /etc/ssl/private/private.key -out /etc/ssl/certs/public.key -days 3650 -subj "/CN=APP"
 
 echo "Путь SSL ключа для панели:"
-echo "/etc/ssl/private/private.key"
-echo "/etc/ssl/certs/public.key"
+color_text green "/etc/ssl/private/private.key"
+color_text green "/etc/ssl/certs/public.key"
 
 confirm_continue
 
 EXTERNAL_IP=$(curl -s ifconfig.me)
 
 echo "Теперь подключение к серверу будет выполняться командой:"
-echo "ssh root@$EXTERNAL_IP -p $RANDOM_PORT -i \"C:\Users\\имя пользователя\\.ssh\\vpn\""
+color_text green "ssh root@$EXTERNAL_IP -p $RANDOM_PORT -i \"C:\Users\\имя пользователя\\.ssh\\vpn\""
 
 confirm_continue
 
