@@ -1,4 +1,4 @@
 Скрипт создания ssh ключа C:\Users\%username%\.ssh\vpn
-
-`Invoke-WebRequest -Uri "https://raw.githubusercontent.com/hips13/3x-auto/main/create_vpn_ssh_key.ps1" -OutFile "create_ssh_key.ps1"`
-
+```
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Hips13/3x-ui-auto/main/create_ssh_key.ps1'))
+```
