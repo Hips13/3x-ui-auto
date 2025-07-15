@@ -16,7 +16,7 @@ confirm_continue() {
         case $yn in
             [Yy]* ) break ;;
             [Nn]* ) echo "Скрипт остановлен."; exit ;;
-            * ) echo "Пожалуйста, введите y или n." ;;
+            * ) echo "Введи y или n." ;;
         esac
     done
 }
@@ -33,12 +33,12 @@ SSHD_CONFIG="/etc/ssh/sshd_config"
 sed -i "s/^#Port.*/Port $RANDOM_PORT/" $SSHD_CONFIG
 sed -i "s/^Port.*/Port $RANDOM_PORT/" $SSHD_CONFIG
 
-color_text green "В терминале вашего Windows (правой кнопкой по пуску - терминал) выполнить скрипт для генерации SSH ключа:"
+color_text green "В терминале Windows (правой кнопкой по пуску - терминал) выполнить скрипт для генерации SSH ключа:"
 printf '\e[34m%s\e[0m\n' "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Hips13/3x-ui-auto/main/create_ssh_key.ps1'))"
 
 confirm_continue
 
-echo "Введите ваш SSH ключ (завершите ввод пустой строкой):"
+echo "Ввести SSH ключ (завершить ввод пустой строкой):"
 SSH_KEY=""
 while IFS= read -r line; do
     if [ -z "$line" ]; then
